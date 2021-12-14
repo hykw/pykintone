@@ -45,7 +45,7 @@ class Account(object):
         apps = None
 
         with open(path, "rb") as f:
-            a_dict = yaml.load(f)
+            a_dict = yaml.safe_load(f)
             apps = cls.loads(a_dict)
 
         return apps
