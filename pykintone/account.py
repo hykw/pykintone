@@ -7,12 +7,14 @@ class Account(object):
 
     def __init__(self, domain,
                  login_id="", login_password="",
-                 basic_id="", basic_password=""):
+                 basic_id="", basic_password="",
+                 access_token=""):
         self.domain = domain
         self.login_id = login_id
         self.login_password = login_password
         self.basic_id = basic_id
         self.basic_password = basic_password
+        self.access_token = access_token
 
     def to_header(self, api_token="", with_content_type=True):
         header = {}
@@ -25,6 +27,9 @@ class Account(object):
         if self.basic_id:
             auth = encode(self.basic_id, self.basic_password)
             header["Authorization"] = "Basic {0}".format(auth)
+
+        if self.access_token:
+            header["Authorization"] = "Bearer {0}".format(self.access_token)
 
         if api_token:
             header["X-Cybozu-API-Token"] = api_token

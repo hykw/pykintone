@@ -8,11 +8,13 @@ def load(path):
 
 def login(domain,
           login_id, login_password,
-          basic_id="", basic_password=""):
+          basic_id="", basic_password="",
+          access_token=""):
 
     account = Account(domain,
                       login_id, login_password,
-                      basic_id, basic_password)
+                      basic_id, basic_password,
+                      access_token)
 
     kintone = kintoneService(account)
 
