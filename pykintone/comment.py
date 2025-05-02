@@ -26,8 +26,9 @@ class RecordComment(ps.kintoneStructure):
         self.created_at = None
         self.creator = None
         self.mentions = []
+        self.text = ""
 
         self._property_details.append(ps.PropertyDetail("comment_id", field_name="id"))
         self._property_details.append(ps.PropertyDetail("created_at", ps.FieldType.CREATED_TIME, field_name="createdAt"))
         self._property_details.append(ps.PropertyDetail("creator", ps.FieldType.CREATOR))
-
+        self._property_details.append(ps.PropertyDetail("text", field_name="text"))
